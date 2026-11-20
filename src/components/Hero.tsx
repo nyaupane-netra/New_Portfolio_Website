@@ -23,7 +23,7 @@ export default function Hero() {
               transition={{ delay: 0.2 }}
               className="inline-block text-sm font-semibold text-primary mb-6 tracking-wide uppercase"
             >
-              Computer Science @ Fisk University
+              Software Engineer @ Goldman Sachs
             </motion.span>
 
             <h1 className="text-balance mb-8">
@@ -31,8 +31,8 @@ export default function Hero() {
             </h1>
 
             <p className="text-xl md:text-2xl text-zinc-500 dark:text-zinc-400 mb-12 max-w-2xl leading-relaxed text-balance">
-              I'm Netra Nyaupane. I specialize in Python, Java, and modern web technologies 
-               to create impactful digital experiences.
+              I'm Netra Nyaupane, a Fisk University Computer Science graduate. I specialize in Python, Java,
+              and modern web technologies to create impactful digital experiences.
             </p>
 
             <div className="flex flex-wrap gap-5">

@@ -6,5 +6,5 @@ export const site = {
   linkedin: 'https://www.linkedin.com/in/netra-nyaupane/',
   /** Year Netra started building software projects. */
   codingSince: 2021,
-  gpa: '3.9',
+  gpa: '3.83',
 };

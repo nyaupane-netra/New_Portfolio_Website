@@ -8,7 +8,7 @@ export default function About() {
   const stats = [
     { value: String(projects.length), label: 'Featured Projects' },
     { value: `${yearsCoding}+`, label: 'Years Coding' },
-    { value: site.gpa, label: 'GPA (CS Major)' },
+    { value: site.gpa, label: 'GPA (B.S. Computer Science)' },
     { value: 'Fisk', label: 'University' },
   ];
 
@@ -28,13 +28,14 @@ export default function About() {
 
             <div className="grid md:grid-cols-2 gap-12 text-lg text-zinc-500 dark:text-zinc-400 leading-relaxed">
               <p>
-                Hello, I am Netra Nyaupane and I am a Student at Fisk University majoring in Computer Science.
-                I'm not only passionate about learning but also driven to create innovative software solutions.
+                Hello, I am Netra Nyaupane. I graduated from Fisk University with a B.S. in Computer Science in
+                May 2026 and now work as a Software Engineer at Goldman Sachs. I'm not only passionate about
+                learning but also driven to create innovative software solutions.
               </p>
               <p>
-                Proficient in Python, Java, and web development, I've developed projects ranging from interactive games
-                to complex web applications. My leadership as President of the Computer Science Club has helped me
-                hone my organizational and mentorship skills.
+                Proficient in Python, Java, and web development, I've built everything from full-stack research tools
+                to real-time chat apps. Along the way I've worked on NSF-supported research, NASA's student rocket
+                competition, and mentoring and teaching programs that sharpened my communication and leadership skills.
               </p>
             </div>
 
