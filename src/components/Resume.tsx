@@ -25,7 +25,7 @@ export default function Resume() {
                 </p>
                 <div className="flex flex-wrap justify-center gap-5">
                   <a 
-                    href="https://netra-nyaupane.vercel.app/Files/Netra-Resume.pdf" 
+                    href="/Netra-Nyaupane-Resume.pdf"
                     target="_blank" 
                     rel="noreferrer"
                     className="btn-primary"
