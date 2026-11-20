@@ -1,26 +1,35 @@
-import React from 'react';
 import { motion } from 'motion/react';
-import { Code2, Server, Database, Wrench } from 'lucide-react';
+import { Code2, Layers, Database, Wrench, Cpu, Sparkles } from 'lucide-react';
 
 const skillCategories = [
   {
     title: 'Languages',
     icon: <Code2 className="text-primary" />,
-    skills: ['Python', 'Java', 'JavaScript', 'C', 'C++', 'HTML', 'CSS'],
+    skills: ['Python', 'Java', 'JavaScript', 'C / C++', 'R', 'HTML / CSS', 'MATLAB', 'Assembly x86', 'QBasic'],
   },
   {
-    title: 'Frameworks',
-    icon: <Server className="text-accent" />,
-    skills: ['React', 'Angular', 'Spring', 'Express', 'Node.js'],
+    title: 'Frameworks & Libraries',
+    icon: <Layers className="text-violet-500" />,
+    skills: ['React', 'Angular', 'Spring Boot', 'Node.js', 'Express', 'Flask', 'NumPy', 'Pandas'],
+  },
+  {
+    title: 'Databases',
+    icon: <Database className="text-sky-500" />,
+    skills: ['MySQL', 'MongoDB', 'Firebase'],
+  },
+  {
+    title: 'Tools',
+    icon: <Wrench className="text-orange-500" />,
+    skills: ['Git', 'Docker', 'Figma', 'Tableau', 'AutoCAD', 'LaTeX'],
   },
   {
     title: 'Core CS',
-    icon: <Database className="text-emerald-500" />,
+    icon: <Cpu className="text-emerald-500" />,
     skills: ['Data Structures', 'Algorithms', 'OOP', 'Multithreading'],
   },
   {
     title: 'Specialties',
-    icon: <Wrench className="text-orange-500" />,
+    icon: <Sparkles className="text-pink-500" />,
     skills: ['Web Dev', 'Data Analysis', 'Automation', 'Performance Optimization'],
   },
 ];
@@ -35,7 +44,7 @@ export default function Skills() {
         </p>
       </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-12">
         {skillCategories.map((category, idx) => (
           <motion.div
             key={category.title}

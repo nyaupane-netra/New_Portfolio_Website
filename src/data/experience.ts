@@ -27,7 +27,7 @@ export const experiences: Experience[] = [
   {
     company: 'National Science Foundation',
     role: 'Software Development Intern',
-    period: 'March 2024 – Present',
+    period: 'March 2024 – May 2026',
     highlights: [
       'Worked with Georgia Tech professors on CollabNext, an NSF TIP Directorate–supported knowledge graph that increases visibility for HBCUs and emerging researchers.',
       'Built and maintained a full-stack ReactJS and Flask web app for 500+ users, cutting deployment time by 35% and setup time by 30%.',
@@ -37,7 +37,7 @@ export const experiences: Experience[] = [
   {
     company: 'Fisk Altitude Achievement Missile Team',
     role: 'Research Intern',
-    period: 'August 2023 – Present',
+    period: 'August 2023 – May 2026',
     highlights: [
       "Contributed to the Propulsion Team in NASA's University Student Launch Initiative (USLI), working with 8 teammates to represent Fisk among 56 institutions nationwide.",
       'Designed and optimized a rocket model in AutoCAD and OpenRocket, meeting certification and flight requirements through simulation.',
