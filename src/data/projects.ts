@@ -1,10 +1,10 @@
 import {
   Network,
+  TrendingUp,
+  Landmark,
+  CalendarCheck,
   MessageSquare,
   Users,
-  BarChart3,
-  Search,
-  Dumbbell,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -19,7 +19,7 @@ export interface Project {
   githubUrl?: string;
 }
 
-// Ordered by importance. Descriptions and numbers come from Netra's resume where available.
+// Ordered by importance. Descriptions come from the GitHub repos and Netra's resume.
 export const projects: Project[] = [
   {
     title: 'CollabNext',
@@ -29,6 +29,32 @@ export const projects: Project[] = [
     gradient: 'from-sky-500 to-indigo-600',
     tags: ['React', 'Flask', 'Knowledge Graph', 'NSF'],
     liveUrl: 'https://collabnext.io',
+  },
+  {
+    title: 'Marketly',
+    description:
+      'Stock tracking app for following real-time prices, setting personalized alerts, and exploring detailed company insights.',
+    icon: TrendingUp,
+    gradient: 'from-emerald-500 to-teal-600',
+    tags: ['Next.js', 'TypeScript', 'Stock Market'],
+    githubUrl: 'https://github.com/nyaupane-netra/marketly_stock-tracker-app',
+  },
+  {
+    title: 'Lumina',
+    description:
+      'AI-powered app that recognizes a place and gives you a detailed description of the landmark.',
+    icon: Landmark,
+    gradient: 'from-amber-500 to-orange-600',
+    tags: ['TypeScript', 'AI', 'Computer Vision'],
+    githubUrl: 'https://github.com/nyaupane-netra/Lumina-App',
+  },
+  {
+    title: 'Salon Booking System',
+    description: 'Full-stack salon booking application built as a set of microservices.',
+    icon: CalendarCheck,
+    gradient: 'from-fuchsia-500 to-purple-600',
+    tags: ['JavaScript', 'Microservices', 'Full-Stack'],
+    githubUrl: 'https://github.com/nyaupane-netra/salon-booking-system',
   },
   {
     title: 'ChatApp',
@@ -44,32 +70,8 @@ export const projects: Project[] = [
     description:
       'Web app that connects students with opportunities, alumni, and experts. Built at the Google HBCU Hackathon with Firebase, where it earned an Honorable Mention.',
     icon: Users,
-    gradient: 'from-violet-500 to-fuchsia-600',
+    gradient: 'from-violet-500 to-blue-600',
     tags: ['React', 'Firebase', 'Hackathon', 'Honorable Mention'],
     githubUrl: 'https://github.com/nyaupane-netra/FiskBook',
-  },
-  {
-    title: 'Data for Good Hackathon',
-    description:
-      'With a team of 4, built a data-driven solution for a nonprofit: a ranking algorithm that picks neighborhoods for expansion and improved their predictive model accuracy by 25%.',
-    icon: BarChart3,
-    gradient: 'from-blue-700 to-slate-800',
-    tags: ['Python', 'SQL', 'Tableau', 'JPMorgan Chase'],
-  },
-  {
-    title: 'Search Engine',
-    description: 'Ranks and displays relevant internet pages based on a given search phrase.',
-    icon: Search,
-    gradient: 'from-emerald-500 to-teal-600',
-    tags: ['Algorithms', 'Search', 'Data'],
-    githubUrl: 'https://github.com/nyaupane-netra/Search-Engine',
-  },
-  {
-    title: 'Fitness Tracker',
-    description: 'Helps monitoring the exercises and calories burned.',
-    icon: Dumbbell,
-    gradient: 'from-orange-500 to-amber-500',
-    tags: ['Python', 'Health', 'Tracking'],
-    githubUrl: 'https://github.com/nyaupane-netra/FitnessTrack',
   },
 ];
