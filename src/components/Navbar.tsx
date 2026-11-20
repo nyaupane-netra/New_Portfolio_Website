@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, Github, Linkedin, Mail } from 'lucide-react';
 import { cn } from '../utils/cn';
+import { site } from '../data/site';
 
 const navLinks = [
   { name: 'About', href: '#about' },
@@ -32,7 +33,7 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto flex items-center justify-between">
         <a href="#" className="text-xl font-bold tracking-tight">
-          Netra Nyaupane<span className="text-primary">.</span>
+          {site.name}<span className="text-primary">.</span>
         </a>
 
         {/* Desktop Nav */}
@@ -47,10 +48,22 @@ export default function Navbar() {
             </a>
           ))}
           <div className="flex items-center gap-5">
-            <a href="https://github.com" target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">
+            <a
+              href={site.github}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+              className="text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+            >
               <Github size={18} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors">
+            <a
+              href={site.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+              className="text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+            >
               <Linkedin size={18} />
             </a>
           </div>
@@ -60,6 +73,8 @@ export default function Navbar() {
         <button
           className="md:hidden p-2 text-zinc-600 dark:text-zinc-400"
           onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={isOpen}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -86,13 +101,29 @@ export default function Navbar() {
                 </a>
               ))}
               <div className="flex items-center gap-6 pt-4 border-t border-zinc-200 dark:border-zinc-800">
-                <a href="https://github.com" target="_blank" rel="noreferrer" className="text-zinc-600 dark:text-zinc-400">
+                <a
+                  href={site.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="GitHub"
+                  className="text-zinc-600 dark:text-zinc-400"
+                >
                   <Github size={24} />
                 </a>
-                <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-zinc-600 dark:text-zinc-400">
+                <a
+                  href={site.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="LinkedIn"
+                  className="text-zinc-600 dark:text-zinc-400"
+                >
                   <Linkedin size={24} />
                 </a>
-                <a href="mailto:alex@example.com" className="text-zinc-600 dark:text-zinc-400">
+                <a
+                  href={`mailto:${site.email}`}
+                  aria-label="Email"
+                  className="text-zinc-600 dark:text-zinc-400"
+                >
                   <Mail size={24} />
                 </a>
               </div>

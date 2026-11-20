@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, Download } from 'lucide-react';
 
 export default function Hero() {
   return (

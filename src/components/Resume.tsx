@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { FileText, Download, ExternalLink } from 'lucide-react';
+import { FileText } from 'lucide-react';
 
 export default function Resume() {
   return (
@@ -30,11 +30,8 @@ export default function Resume() {
                     rel="noreferrer"
                     className="btn-primary"
                   >
-                    Download PDF
+                    View / Download PDF
                   </a>
-                  <button className="btn-secondary">
-                    View Online
-                  </button>
                 </div>
               </div>
             </div>

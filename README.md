@@ -1,20 +1,32 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Netra Nyaupane — Portfolio
 
-# Run and deploy your AI Studio app
+Personal portfolio for Netra Nyaupane, Computer Science student at Fisk University.
+Built with React 19, TypeScript, Vite, Tailwind CSS 4, and Motion.
 
-This contains everything you need to run your app locally.
+## Run locally
 
-View your app in AI Studio: https://ai.studio/apps/115897f4-321e-42a8-a82c-f691f0e9cdd2
+Prerequisite: Node.js 20+
 
-## Run Locally
+```bash
+npm install
+npm run dev      # http://localhost:3000
+```
 
-**Prerequisites:**  Node.js
+## Scripts
 
+| Command           | What it does                      |
+| ----------------- | --------------------------------- |
+| `npm run dev`     | Start the dev server on port 3000 |
+| `npm run build`   | Production build into `dist/`     |
+| `npm run preview` | Preview the production build      |
+| `npm run lint`    | Type-check with `tsc --noEmit`    |
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## Editing content
+
+- `src/data/site.ts` — name, email, location, social links, GPA, and the year you started coding
+- `src/data/projects.ts` — featured projects (omit `liveUrl` or `githubUrl` to hide that button)
+- `src/components/` — one file per page section
+
+## Deployment
+
+Deployed on Vercel. Vercel detects Vite automatically (build command `npm run build`, output directory `dist`).
