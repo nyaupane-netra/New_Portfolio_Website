@@ -1,7 +1,7 @@
 import {
   Network,
   TrendingUp,
-  Landmark,
+  Brain,
   CalendarCheck,
   MessageSquare,
   Users,
@@ -19,7 +19,8 @@ export interface Project {
   githubUrl?: string;
 }
 
-// Ordered by importance. Descriptions come from the GitHub repos and Netra's resume.
+// Ordered by importance. Descriptions come from the GitHub repos and Netra's resume,
+// and were checked against the code in a repo-by-repo review.
 export const projects: Project[] = [
   {
     title: 'CollabNext',
@@ -33,33 +34,34 @@ export const projects: Project[] = [
   {
     title: 'Marketly',
     description:
-      'Stock tracking app for following real-time prices, setting personalized alerts, and exploring detailed company insights.',
+      'Full-stack stock tracker with real-time Finnhub market data, user accounts, watchlists, and price alerts delivered by email through scheduled background jobs.',
     icon: TrendingUp,
     gradient: 'from-emerald-500 to-teal-600',
-    tags: ['Next.js', 'TypeScript', 'Stock Market'],
+    tags: ['Next.js', 'TypeScript', 'MongoDB', 'Inngest'],
     githubUrl: 'https://github.com/nyaupane-netra/marketly_stock-tracker-app',
   },
   {
-    title: 'Lumina',
+    title: 'Financial Sentiment Analysis',
     description:
-      'AI-powered app that recognizes a place and gives you a detailed description of the landmark.',
-    icon: Landmark,
+      'Fine-tuned BERT classifier for financial text, compared against FinBERT, with Streamlit dashboards, a FastAPI prediction endpoint, tests, and CI.',
+    icon: Brain,
     gradient: 'from-amber-500 to-orange-600',
-    tags: ['TypeScript', 'AI', 'Computer Vision'],
-    githubUrl: 'https://github.com/nyaupane-netra/Lumina-App',
+    tags: ['PyTorch', 'NLP', 'FastAPI', 'Streamlit'],
+    githubUrl: 'https://github.com/nyaupane-netra/Financial-Sentiment-Analysis',
   },
   {
     title: 'Salon Booking System',
-    description: 'Full-stack salon booking application built as a set of microservices.',
+    description:
+      'Full-stack salon booking platform built as Spring Boot microservices behind a Spring Cloud Gateway, with Eureka discovery, Keycloak auth, RabbitMQ events, and a React frontend.',
     icon: CalendarCheck,
     gradient: 'from-fuchsia-500 to-purple-600',
-    tags: ['JavaScript', 'Microservices', 'Full-Stack'],
+    tags: ['Java', 'Spring Cloud', 'Microservices', 'React'],
     githubUrl: 'https://github.com/nyaupane-netra/salon-booking-system',
   },
   {
     title: 'ChatApp',
     description:
-      'Real-time chat application built on the MERN stack with Socket.io, supporting 100+ concurrent users with low latency and a responsive interface.',
+      'Real-time chat application on the MERN stack with Socket.io: JWT authentication, one-to-one and group chats, persisted messages, and typing indicators.',
     icon: MessageSquare,
     gradient: 'from-rose-500 to-pink-600',
     tags: ['React', 'Node.js', 'MongoDB', 'Socket.io'],
@@ -68,10 +70,10 @@ export const projects: Project[] = [
   {
     title: 'FiskBook',
     description:
-      'Web app that connects students with opportunities, alumni, and experts. Built at the Google HBCU Hackathon with Firebase, where it earned an Honorable Mention.',
+      'Hackathon project from the Google HBCU Hackathon (Honorable Mention): a React and Firebase Firestore app where students post and browse opportunities and explore an alumni directory.',
     icon: Users,
     gradient: 'from-violet-500 to-blue-600',
-    tags: ['React', 'Firebase', 'Hackathon', 'Honorable Mention'],
+    tags: ['React', 'Firebase', 'Firestore', 'Hackathon'],
     githubUrl: 'https://github.com/nyaupane-netra/FiskBook',
   },
 ];
