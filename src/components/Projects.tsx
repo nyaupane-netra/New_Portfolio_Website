@@ -1,57 +1,6 @@
-import React from 'react';
 import { motion } from 'motion/react';
 import { ExternalLink, Github } from 'lucide-react';
-
-const projects = [
-  {
-    title: 'CollabNext',
-    description: 'Builds a knowledge graph to uplift HBCUs and emerging researchers.',
-    image: 'https://picsum.photos/seed/collab/800/600',
-    tags: ['React', 'Knowledge Graph', 'HBCU'],
-    liveUrl: 'https://collabnext.io',
-    githubUrl: '#',
-  },
-  {
-    title: 'FiskBook WebApp',
-    description: 'Helps students find opportunities and connect with alumni of their field.',
-    image: 'https://picsum.photos/seed/fisk/800/600',
-    tags: ['Web App', 'Networking', 'Alumni'],
-    liveUrl: '#',
-    githubUrl: 'https://github.com/nyaupane-netra/FiskBook',
-  },
-  {
-    title: 'Search Engine',
-    description: 'Ranks and displays relevant internet pages based on a given search phrase.',
-    image: 'https://picsum.photos/seed/search/800/600',
-    tags: ['Algorithms', 'Search', 'Data'],
-    liveUrl: '#',
-    githubUrl: 'https://github.com/nyaupane-netra/Search-Engine',
-  },
-  {
-    title: 'BlackJack Game',
-    description: 'Python-based Blackjack game, showcasing programming skills and interactive gameplay.',
-    image: 'https://picsum.photos/seed/cards/800/600',
-    tags: ['Python', 'Game Dev', 'Logic'],
-    liveUrl: '#',
-    githubUrl: 'https://github.com/nyaupane-netra/Black-Jack-Game',
-  },
-  {
-    title: 'Space Game',
-    description: 'A simple Space game using JavaScript, HTML, and CSS.',
-    image: 'https://picsum.photos/seed/space/800/600',
-    tags: ['JavaScript', 'HTML', 'CSS', 'Game'],
-    liveUrl: '#',
-    githubUrl: 'https://github.com/nyaupane-netra/Space-Game',
-  },
-  {
-    title: 'Fitness Tracker',
-    description: 'Helps monitoring the exercises and calories burned.',
-    image: 'https://picsum.photos/seed/gym/800/600',
-    tags: ['Python', 'Health', 'Tracking'],
-    liveUrl: '#',
-    githubUrl: 'https://github.com/nyaupane-netra/FitnessTrack',
-  },
-];
+import { projects } from '../data/projects';
 
 export default function Projects() {
   return (
@@ -65,47 +14,66 @@ export default function Projects() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
-          {projects.map((project, idx) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.1 }}
-              className="group glass-card overflow-hidden flex flex-col h-full"
-            >
-              <div className="relative aspect-[16/10] overflow-hidden bg-zinc-200 dark:bg-zinc-800">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                  referrerPolicy="no-referrer"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
-              </div>
-              <div className="p-10 flex-1 flex flex-col">
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.map((tag) => (
-                    <span key={tag} className="text-[10px] uppercase tracking-widest font-bold text-zinc-400">
-                      {tag}
-                    </span>
-                  ))}
+          {projects.map((project, idx) => {
+            const Icon = project.icon;
+            return (
+              <motion.div
+                key={project.title}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="group glass-card overflow-hidden flex flex-col h-full"
+              >
+                <div
+                  className={`relative aspect-[16/10] overflow-hidden bg-gradient-to-br ${project.gradient} flex items-center justify-center`}
+                  aria-hidden="true"
+                >
+                  <Icon
+                    size={72}
+                    strokeWidth={1.25}
+                    className="text-white/90 group-hover:scale-110 transition-transform duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
                 </div>
-                <h3 className="text-2xl mb-4 group-hover:text-primary transition-colors">{project.title}</h3>
-                <p className="text-zinc-500 dark:text-zinc-400 text-base mb-8 flex-1 leading-relaxed">
-                  {project.description}
-                </p>
-                <div className="flex items-center gap-6">
-                  <a href={project.liveUrl} className="text-sm font-bold flex items-center gap-2 hover:text-primary transition-colors">
-                    Live Demo <ExternalLink size={16} />
-                  </a>
-                  <a href={project.githubUrl} className="text-sm font-bold flex items-center gap-2 hover:text-primary transition-colors">
-                    GitHub <Github size={16} />
-                  </a>
+                <div className="p-10 flex-1 flex flex-col">
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.tags.map((tag) => (
+                      <span key={tag} className="text-[10px] uppercase tracking-widest font-bold text-zinc-400">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <h3 className="text-2xl mb-4 group-hover:text-primary transition-colors">{project.title}</h3>
+                  <p className="text-zinc-500 dark:text-zinc-400 text-base mb-8 flex-1 leading-relaxed">
+                    {project.description}
+                  </p>
+                  <div className="flex items-center gap-6">
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-sm font-bold flex items-center gap-2 hover:text-primary transition-colors"
+                      >
+                        Live Demo <ExternalLink size={16} />
+                      </a>
+                    )}
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-sm font-bold flex items-center gap-2 hover:text-primary transition-colors"
+                      >
+                        GitHub <Github size={16} />
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

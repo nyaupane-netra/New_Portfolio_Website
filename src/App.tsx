@@ -25,7 +25,7 @@ export default function App() {
       <footer className="py-12 border-t border-zinc-200 dark:border-zinc-800 text-center">
         <div className="section-container">
           <p className="text-zinc-500 text-sm">
-            © {new Date().getFullYear()} Netra Nyaupane. Built with React, Tailwind, and Gemini AI.
+            © {new Date().getFullYear()} Netra Nyaupane. Built with React and Tailwind.
           </p>
         </div>
       </footer>

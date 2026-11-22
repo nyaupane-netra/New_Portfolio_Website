@@ -1,26 +1,5 @@
-import React from 'react';
 import { motion } from 'motion/react';
-
-const experiences = [
-  {
-    company: 'Fisk University CS Club',
-    role: 'President',
-    period: '2023 - Present',
-    description: 'Organized events, boosted club membership, and led technical workshops for students interested in computer science.',
-  },
-  {
-    company: 'Fisk University',
-    role: 'Mathematics Tutor',
-    period: '2022 - Present',
-    description: 'Assisted fellow students in mastering mathematical concepts, improving their academic performance and confidence.',
-  },
-  {
-    company: 'Independent Projects',
-    role: 'Software Developer',
-    period: '2021 - Present',
-    description: 'Developed various software solutions including a search engine, fitness tracker, and interactive games using Python and JavaScript.',
-  },
-];
+import { experiences } from '../data/experience';
 
 export default function Experience() {
   return (
@@ -35,11 +14,11 @@ export default function Experience() {
       <div className="space-y-16">
         {experiences.map((exp, idx) => (
           <motion.div
-            key={exp.company}
+            key={`${exp.company}-${exp.role}`}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: idx * 0.1 }}
+            transition={{ delay: Math.min(idx, 3) * 0.1 }}
             className="grid md:grid-cols-[200px_1fr] gap-8 md:gap-16"
           >
             <div className="text-sm font-mono text-zinc-400 pt-1">
@@ -51,9 +30,17 @@ export default function Experience() {
                 <div className="h-px flex-1 bg-black/5 dark:bg-white/10" />
               </div>
               <p className="text-lg font-semibold text-primary mb-6">{exp.role}</p>
-              <p className="text-lg text-zinc-500 dark:text-zinc-400 leading-relaxed max-w-3xl">
-                {exp.description}
-              </p>
+              <ul className="space-y-3 max-w-3xl">
+                {exp.highlights.map((point) => (
+                  <li
+                    key={point}
+                    className="flex gap-3 text-lg text-zinc-500 dark:text-zinc-400 leading-relaxed"
+                  >
+                    <span className="mt-3 w-1 h-1 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </motion.div>
         ))}

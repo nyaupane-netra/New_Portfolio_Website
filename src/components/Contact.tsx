@@ -1,23 +1,14 @@
-import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Send, Mail, Phone, MapPin, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, MapPin, Github, Linkedin, ArrowUpRight } from 'lucide-react';
+import { site } from '../data/site';
+
+const socials = [
+  { label: 'GitHub', href: site.github, Icon: Github },
+  { label: 'LinkedIn', href: site.linkedin, Icon: Linkedin },
+  { label: 'Email', href: `mailto:${site.email}`, Icon: Mail },
+];
 
 export default function Contact() {
-  const [formState, setFormState] = useState({ name: '', email: '', message: '' });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitted(true);
-      setFormState({ name: '', email: '', message: '' });
-    }, 1500);
-  };
-
   return (
     <section id="contact" className="section-container">
       <div className="max-w-4xl mx-auto">
@@ -37,7 +28,9 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-[11px] uppercase tracking-widest font-bold text-zinc-400 mb-1">Email</p>
-                  <p className="text-lg font-semibold">nyaupane.netra@example.com</p>
+                  <a href={`mailto:${site.email}`} className="text-lg font-semibold hover:text-primary transition-colors break-all">
+                    {site.email}
+                  </a>
                 </div>
               </div>
               <div className="flex items-center gap-6">
@@ -46,16 +39,19 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-[11px] uppercase tracking-widest font-bold text-zinc-400 mb-1">Location</p>
-                  <p className="text-lg font-semibold">Nashville, TN</p>
+                  <p className="text-lg font-semibold">{site.location}</p>
                 </div>
               </div>
             </div>
 
             <div className="flex gap-5">
-              {[Github, Linkedin, Twitter].map((Icon, idx) => (
+              {socials.map(({ label, href, Icon }) => (
                 <a
-                  key={idx}
-                  href="#"
+                  key={label}
+                  href={href}
+                  target={href.startsWith('mailto:') ? undefined : '_blank'}
+                  rel="noreferrer"
+                  aria-label={label}
                   className="w-12 h-12 rounded-2xl bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center text-zinc-500 hover:text-primary transition-all"
                 >
                   <Icon size={20} />
@@ -64,58 +60,33 @@ export default function Contact() {
             </div>
           </div>
 
-          <div>
-            {submitted ? (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="glass-card p-10 text-center"
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="glass-card p-10 flex flex-col justify-center gap-6"
+          >
+            <h3 className="text-2xl font-bold">Let's talk.</h3>
+            <p className="text-zinc-500 dark:text-zinc-400 leading-relaxed">
+              The quickest way to reach me is email. Tell me a bit about what you have in mind and I'll get back to you.
+            </p>
+            <div className="flex flex-col gap-4">
+              <a
+                href={`mailto:${site.email}?subject=${encodeURIComponent('Hello from your portfolio')}`}
+                className="btn-primary text-center"
               >
-                <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary mx-auto mb-6">
-                  <Send size={32} />
-                </div>
-                <h3 className="text-2xl font-bold mb-2">Message Sent!</h3>
-                <p className="text-zinc-500 dark:text-zinc-400">
-                  Thank you for reaching out. I'll get back to you as soon as possible.
-                </p>
-              </motion.div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="space-y-4">
-                  <input
-                    required
-                    type="text"
-                    value={formState.name}
-                    onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-                    className="w-full p-5 rounded-2xl bg-zinc-100 dark:bg-zinc-800 border-none focus:ring-2 focus:ring-primary outline-none text-sm transition-all"
-                    placeholder="Name"
-                  />
-                  <input
-                    required
-                    type="email"
-                    value={formState.email}
-                    onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-                    className="w-full p-5 rounded-2xl bg-zinc-100 dark:bg-zinc-800 border-none focus:ring-2 focus:ring-primary outline-none text-sm transition-all"
-                    placeholder="Email"
-                  />
-                  <textarea
-                    required
-                    rows={5}
-                    value={formState.message}
-                    onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-                    className="w-full p-5 rounded-2xl bg-zinc-100 dark:bg-zinc-800 border-none focus:ring-2 focus:ring-primary outline-none text-sm resize-none transition-all"
-                    placeholder="Message"
-                  />
-                </div>
-                <button
-                  disabled={isSubmitting}
-                  className="w-full btn-primary"
-                >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
-                </button>
-              </form>
-            )}
-          </div>
+                Email me
+              </a>
+              <a
+                href={site.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="btn-secondary text-center inline-flex items-center justify-center gap-2"
+              >
+                Connect on LinkedIn <ArrowUpRight size={18} />
+              </a>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
